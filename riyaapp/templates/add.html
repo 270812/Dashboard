@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="{% static 'css/add.css' %}">
+
+</head>
+<body>
+    {% include "aside.html" %}
+
+    <main class="main" style="margin-top: 10px; background-color: beige; ">
+
+      <div class="details">
+          <form method="post" enctype="multipart/form-data">{% csrf_token %}
+            <div class="mb-3">
+              <label style="margin-left: 80px; color: darkslategray;" for="image" class="form-label fs-4">profile</label>
+              <div>
+                <img src="{{i.image.url}}" alt="">
+            </div>
+              <input style="margin-left: 80px;" type="file" name="image" accept="image/*" id="image" placeholder="image" >
+            </div>
+              <div class="mb-3 ">
+                  <label style="margin-left: 80px; color: darkslategray;"  for="name" class="form-label fs-4">Name</label>
+                  <input type="text"  id="name" class="form-control" placeholder="name" name="name" style="width: 800px; height: 40px; border-color:darkgrey; margin-left: 80px;">
+                </div>
+              <div class="mb-3">
+                <label  style="margin-left: 80px; color: darkslategray;"  for="position" class="form-label fs-4">Position</label>
+                <input type="text"  id="position" class="form-control" placeholder="position" name="position" style="width: 800px; height: 40px;  border-color: darkgray; margin-left: 80px;">
+              </div>
+              <div class="mb-3">
+                  <label  style="margin-left: 80px; color: darkslategray;" for="country" class="form-label fs-4">Country</label>
+                  <input type="text"  id="country" class="form-control" placeholder="country" name="country" style="width: 800px; height: 40px;  border-color: darkgray; margin-left: 80px;">
+                </div>
+                <div class="mb-3">
+                  <label  style="margin-left: 80px; color: darkslategray;" for="portfolio" class="form-label fs-4">Portfolio</label>
+                  <input type="text"  id="portfolio" class="form-control" placeholder="portfolio" name="portfolio" style="width: 800px; height: 40px;  border-color:darkgray; margin-left: 80px;">
+                </div  >
+                <div class="mb-3">
+                  <label  style="margin-left: 80px; color: darkslategray;" for="role" class="form-label fs-4">role</label>
+                  <input type="text"  id="role" class="form-control" placeholder="role" name="role" style="width: 800px; height: 40px;  border-color: darkgray; margin-left: 80px;">
+                </div  >
+                <div class="container d-flex align-items-center justify-content-center " >
+                  <!-- <a href="{% url 'userpage' %}" class="btn btn-info">Send</a> -->
+                   <button type="submit"  class="btn btn-primary" style=" color: white; background-color: blue; width: 80px; margin-right: 700px; padding: 5px; width: 80px;"  >send</button >
+                <!-- <button type="submit" class="btn btn-info"> <a href="{% url 'userpage' %}">send</a></button> -->
+                </div>
+          </form>
+      </div>
+    </main>
+</body>
+</html>
